@@ -1,0 +1,79 @@
+<Window x:Class="KubeMgr.WpfApp.Views.Settings.ClusterConnectionView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="EtradeConnectionSettingsView" Height="600" Width="300" 
+        WindowStartupLocation="CenterOwner"
+        SizeToContent="WidthAndHeight">
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="*"/>
+      <RowDefinition Height="Auto"/>
+    </Grid.RowDefinitions>
+
+    <StackPanel>
+      <StackPanel>
+
+        <TextBlock FontSize="20" Text="Cluster connection settings" />
+
+        <TextBlock Text="Group" />
+        <ComboBox x:Name="ComboBoxGroep" Text="{Binding Connection.Group}" IsEditable="True">
+        </ComboBox>
+
+        <TextBlock Text="Description" />
+        <TextBox Text="{Binding Connection.Description}"></TextBox>
+
+        <TextBlock Text="Kind" />
+        <ComboBox x:Name="ComboBoxKind" SelectedValue="{Binding Connection.Kind, Converter={StaticResource EnumListConfigKind}}" ItemsSource="{StaticResource EnumListConfigKind}"/>
+
+        <GroupBox Header="Options">
+          <StackPanel>
+            <StackPanel Visibility="{Binding Connection.IsNoAuthentication, Converter={StaticResource BooleanToVisibilityConverter}}">
+              <TextBlock Text="Url" />
+              <ComboBox x:Name="ComboBoxUrlNoAuth" Text="{Binding Connection.Url}" IsEditable="True"></ComboBox>
+
+              <CheckBox IsChecked="{Binding Connection.AllowInsecure}" Content="AllowInsecure"></CheckBox>
+            </StackPanel>
+
+            <StackPanel Visibility="{Binding Connection.IsKubeConfig, Converter={StaticResource BooleanToVisibilityConverter}}">
+              <TextBlock Text="KubeConfigFile" />
+              <TextBox Text="{Binding Connection.KubeConfigFile}"></TextBox>
+
+              <TextBlock Text="DefaultContext" />
+              <TextBox Text="{Binding Connection.DefaultContext}"></TextBox>
+            </StackPanel>
+
+            <StackPanel Visibility="{Binding Connection.IsBearerToken, Converter={StaticResource BooleanToVisibilityConverter}}">
+              <TextBlock Text="Url" />
+              <ComboBox x:Name="ComboBoxUrlBearer" Text="{Binding Connection.Url}" IsEditable="True"></ComboBox>
+
+              <CheckBox IsChecked="{Binding Connection.AllowInsecure}" Content="AllowInsecure"></CheckBox>
+
+              <TextBlock Text="AccessToken" />
+              <TextBox Text="{Binding Connection.AccessToken}"></TextBox>
+            </StackPanel>
+
+            <CheckBox IsChecked="{Binding Connection.AutoStart}" Content="AutoStart"></CheckBox>
+
+            <TextBlock Text="DefaultNamespace" />
+            <TextBox Text="{Binding Connection.DefaultNamespace}"></TextBox>
+
+          </StackPanel>
+        </GroupBox>
+
+        <TextBlock Text="Comments" />
+        <TextBox Text="{Binding Connection.Comments}" AcceptsReturn="True"></TextBox>
+
+      </StackPanel>
+    </StackPanel>
+
+    <Grid Grid.Row="1">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="*"/>
+      </Grid.ColumnDefinitions>
+      <Button Name="Ok" Content="Ok" />
+      <Button Name="Cancel" Content="Cancel" Grid.Column="1" />
+    </Grid>
+
+  </Grid>
+</Window>

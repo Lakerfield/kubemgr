@@ -1,0 +1,82 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <Authors>Michael Lakerveld</Authors>
+    <Company>Lakerfield B.V.</Company>
+    <PackageProjectUrl>http://kubemgr.com/</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Lakerfield/KubeMgr</RepositoryUrl>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\*.*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Images\element_add32.png" />
+    <None Remove="Images\element_copy32.png" />
+    <None Remove="Images\element_delete32.png" />
+    <None Remove="Images\element_edit32.png" />
+    <None Remove="Images\element_run32.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Caliburn.Micro" Version="4.0.104-alpha" />
+    <PackageReference Include="KubeClient" Version="2.3.6" />
+    <PackageReference Include="KubeClient.Extensions.Configuration" Version="2.3.6" />
+    <PackageReference Include="KubeClient.Extensions.KubeConfig" Version="2.3.6" />
+    <PackageReference Include="KubeClient.Extensions.WebSockets" Version="2.3.6" />
+    <PackageReference Include="System.Reactive" Version="4.3.1" />
+    <PackageReference Include="System.Reactive.Linq" Version="4.3.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\KubeMgr\KubeMgr.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\NodesView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\PodView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\PodsView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\NamespacesView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\NamespaceView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\NodeView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="Views\NodesView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\PodView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\PodsView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\NamespacesView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\NamespaceView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\NodeView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+
+</Project>

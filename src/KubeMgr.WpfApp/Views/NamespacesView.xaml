@@ -1,0 +1,39 @@
+﻿<UserControl x:Class="KubeMgr.WpfApp.Views.NamespacesView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:KubeMgr.WpfApp.Views"
+             xmlns:cm="http://caliburnmicro.com"
+             xmlns:controls="clr-namespace:KubeMgr.WpfApp.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="*"/>
+    </Grid.RowDefinitions>
+
+    <StackPanel>
+      <TextBlock>Namespaces</TextBlock>
+      <TextBlock Text="{Binding View.Status}"></TextBlock>
+    </StackPanel>
+
+    <DataGrid Grid.Row="1" 
+              x:Name="DgRows"
+              ItemsSource="{Binding View.Collection}" 
+              SelectedItem="{Binding Selected}"
+              MouseDoubleClick="DgRows_OnMouseDoubleClick"
+              RowDetailsVisibilityMode="Collapsed"
+              IsReadOnly="True" RowHeaderWidth="20"
+              AutoGenerateColumns="False">
+      <DataGrid.Columns>
+        <DataGridTextColumn IsReadOnly="True" Header="Kind" Binding="{Binding Entity.Kind}" />
+        <DataGridTextColumn IsReadOnly="True" Header="Name" Binding="{Binding Name}" />
+        <DataGridTextColumn IsReadOnly="True" Header="Creation" Binding="{Binding Entity.Metadata.CreationTimestamp, StringFormat='yyyy-MM-dd HH:mm:ss'}" />
+        <DataGridTextColumn IsReadOnly="True" Header="SelfLink" Binding="{Binding Entity.Metadata.SelfLink}" />
+      </DataGrid.Columns>
+    </DataGrid>
+
+  </Grid>
+</UserControl>

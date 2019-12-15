@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29609.76
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KubeMgr", "src\KubeMgr\KubeMgr.csproj", "{1FDCC679-C4E7-4613-B910-A4BB0799E42C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KubeMgr.WpfApp", "src\KubeMgr.WpfApp\KubeMgr.WpfApp.csproj", "{4B136B43-4BEB-4FA3-A6DB-8AD549ADAAA8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1FDCC679-C4E7-4613-B910-A4BB0799E42C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FDCC679-C4E7-4613-B910-A4BB0799E42C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FDCC679-C4E7-4613-B910-A4BB0799E42C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FDCC679-C4E7-4613-B910-A4BB0799E42C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B136B43-4BEB-4FA3-A6DB-8AD549ADAAA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B136B43-4BEB-4FA3-A6DB-8AD549ADAAA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B136B43-4BEB-4FA3-A6DB-8AD549ADAAA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B136B43-4BEB-4FA3-A6DB-8AD549ADAAA8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4CECD996-FE94-4709-85B4-E2AE8B9D8F16}
+	EndGlobalSection
+EndGlobal

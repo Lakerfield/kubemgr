@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Michael Lakerveld</Authors>
+    <Company>Lakerfield B.V.</Company>
+    <PackageProjectUrl>http://kubemgr.com/</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Lakerfield/KubeMgr</RepositoryUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="KubeClient" Version="2.3.6" />
+    <PackageReference Include="System.Reactive" Version="4.3.1" />
+  </ItemGroup>
+
+</Project>

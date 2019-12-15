@@ -1,0 +1,53 @@
+<Window x:Class="KubeMgr.WpfApp.Views.Settings.ClusterConnectionsView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        WindowStartupLocation="CenterOwner"
+        Title="Cluster connections" SizeToContent="WidthAndHeight" MinHeight="200" MinWidth="300">
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="*"/>
+    </Grid.RowDefinitions>
+
+    <StackPanel Orientation="Horizontal">
+
+      <Button x:Name="New" ToolTip="New">
+        <Image Source="/KubeMgr.WpfApp;component/Images/element_add32.png" Height="32" />
+      </Button>
+
+      <Button x:Name="Edit" ToolTip="Edit">
+        <Image Source="/KubeMgr.WpfApp;component/Images/element_edit32.png" Height="32" />
+      </Button>
+
+      <Button x:Name="Copy" ToolTip="Copy">
+        <Image Source="/KubeMgr.WpfApp;component/Images/element_copy32.png" Height="32" />
+      </Button>
+
+      <Button x:Name="Delete" ToolTip="Delete">
+        <Image Source="/KubeMgr.WpfApp;component/Images/element_delete32.png" Height="32" />
+      </Button>
+
+      <Button x:Name="Select" ToolTip="Select" Margin="8,0">
+        <Image Source="/KubeMgr.WpfApp;component/Images/element_run32.png" Height="32" />
+      </Button>
+
+    </StackPanel>
+
+    <DataGrid x:Name="ConnectionDataGrid" 
+              ItemsSource="{Binding Connections}" 
+              SelectedItem="{Binding SelectedConnection}" 
+              AutoGenerateColumns="False" 
+              CanUserAddRows="False"
+              IsReadOnly="True"
+              Grid.Row="1" 
+              MouseDoubleClick="ConnectionDataGridMouseDoubleClick">
+      <DataGrid.Columns>
+        <DataGridTextColumn Header="Group" Binding="{Binding Group}"></DataGridTextColumn>
+        <DataGridTextColumn Header="Description" Binding="{Binding Description}"></DataGridTextColumn>
+        <DataGridTextColumn Header="Url" Binding="{Binding Url}"></DataGridTextColumn>
+        <DataGridTextColumn Header="Comments" Binding="{Binding Comments}"></DataGridTextColumn>
+      </DataGrid.Columns>
+    </DataGrid>
+
+  </Grid>
+</Window>

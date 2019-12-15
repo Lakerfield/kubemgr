@@ -1,0 +1,77 @@
+﻿<Window x:Class="KubeMgr.WpfApp.Views.ShellView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:cal="http://www.caliburnproject.org"
+        xmlns:local="clr-namespace:KubeMgr.WpfApp.Views"
+        mc:Ignorable="d"
+        Title="Lakerfield's KubeMgr" Height="800" Width="1200" WindowStartupLocation="CenterScreen">
+
+  <Grid>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="*"/>
+      <ColumnDefinition Width="Auto"/>
+    </Grid.ColumnDefinitions>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="*"/>
+      <RowDefinition Height="Auto"/>
+    </Grid.RowDefinitions>
+
+    <StackPanel Orientation="Horizontal" Grid.ColumnSpan="2">
+
+      <Button x:Name="OpenCluster" ToolTip="Open cluster">
+        <Image Source="/KubeMgr.WpfApp;component/Images/api-128.png" Height="64" />
+      </Button>
+
+      <StackPanel Margin="8,0">
+        <TextBlock>Cluster <Run FontWeight="Bold" Text="{Binding SelectedTab.Cluster.Options.ApiEndPoint}"/></TextBlock>
+        <TextBlock>Namespace <Run FontWeight="Bold" Text="{Binding SelectedTab.Namespace}"/></TextBlock>
+        <TextBlock>LabelFilter <Run FontWeight="Bold" Text="{Binding SelectedTab.LabelFilter}"/></TextBlock>
+      </StackPanel>
+
+      <Button x:Name="OpenNodes" ToolTip="Open nodes">
+        <Image Source="/KubeMgr.WpfApp;component/Images/node-128.png" Height="64" />
+      </Button>
+
+      <Button x:Name="OpenNamespaces" ToolTip="Open namespaces">
+        <Image Source="/KubeMgr.WpfApp;component/Images/ns-128.png" Height="64" />
+      </Button>
+
+      <Button x:Name="OpenPods" ToolTip="Open pods">
+        <Image Source="/KubeMgr.WpfApp;component/Images/pod-128.png" Height="64" />
+      </Button>
+
+      <Button x:Name="OpenServices" ToolTip="Open services">
+        <Image Source="/KubeMgr.WpfApp;component/Images/svc-128.png" Height="64" />
+      </Button>
+
+      <Button x:Name="OpenTest" ToolTip="Open test">
+        <Image Source="/KubeMgr.WpfApp;component/Images/secret-128.png" Height="64" />
+      </Button>
+
+    </StackPanel>
+
+    <TabControl x:Name="Items" SelectedItem="{Binding SelectedTab}" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+      <TabControl.ItemTemplate>
+        <DataTemplate>
+          <StackPanel Orientation="Horizontal">
+            <TextBlock Text="{Binding TabTitle}" />
+            <TextBlock Text="{Binding View.Collection.Count, StringFormat='{} ({0})'}"></TextBlock>
+            <Button Style="{StaticResource TabCloseButton}" Margin="8,0,0,0" Content="X" cal:Message.Attach="CloseItem($dataContext)" />
+          </StackPanel>
+        </DataTemplate>
+      </TabControl.ItemTemplate>
+    </TabControl>
+
+    <ItemsControl ItemsSource="{Binding DataBindingErrors}" Grid.Row="2" cal:Message.Attach="[Event MouseDoubleClick] = [Action ClearDataBindingErrors]" >
+      <ItemsControl.ItemTemplate>
+        <DataTemplate>
+          <TextBlock Text="{Binding}" Foreground="Red"></TextBlock>
+        </DataTemplate>
+      </ItemsControl.ItemTemplate>
+    </ItemsControl>
+
+  </Grid>
+</Window>
